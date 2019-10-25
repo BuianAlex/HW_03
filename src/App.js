@@ -307,7 +307,7 @@ class App extends React.Component {
   workoutAction(){
     if(!this.state.sleep){
       this.workoutControl(50, true);
-      this.happinessControl(10, true);
+      this.happinessControl(5, true);
       this.feedControl(-20, true);
     } 
   }
