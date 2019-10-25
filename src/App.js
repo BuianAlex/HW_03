@@ -1,8 +1,6 @@
 import React from 'react';
 import './App.scss';
 
-//import Tami from './modules/tami'
-import { join } from 'path';
 
 class App extends React.Component {
   
@@ -11,14 +9,14 @@ class App extends React.Component {
     this.moodImg = ["tami-norm","51tami","tami-sick","tami-sleep","tami-died"]
     this.state = { 
       inputName: '',
-      name: "sdfs ",
+      name: " ",
       health: 100,
       healthBtnState: '',
       fullness: 110,
       fullnessBtnState: '',
       happiness: 100,
       happinessBtnState: '',
-      wisdom: 25,
+      wisdom: 100,
       wisdomBtnState: '',
       workout: 0,
       workoutBtnState: '',
