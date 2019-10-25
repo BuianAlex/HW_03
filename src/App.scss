@@ -12,18 +12,19 @@ body{
   align-items: center;
   h1{
       font-size: 70px;
-      line-height: 4vw;
+      line-height: 2vw;
   }
   p{
       width: 70%;
       font-size: 20px;
       line-height: 28px;
       text-align: center;
+      margin-bottom: 2vw;
   }
   input{
       width: 417px;
       height: 54px;
-      margin: 2vw 0;
+      margin-bottom: 5vw;
       padding: 0 25px;
       border: 1px solid #000000;
       border-radius: 27px; 
@@ -131,7 +132,7 @@ body{
   position: relative;
   height: 54px;
   margin: 0.5vw;
-  line-height: 21px;
+  margin-bottom: 2vw;
   background: #000000;
   border-radius: 27px;
   outline: none;
@@ -152,6 +153,9 @@ body{
   }
   &:hover::before{
       opacity: 1;
+  }
+  &:hover .hint{
+    display: block;
   }
   &::after{
     content: '';
@@ -178,6 +182,7 @@ body{
 .kill-btn{
   &::after{
     content: 'X';
+    line-height: 20px;
     color: #fff;
   }
   &:hover::after{
@@ -214,14 +219,53 @@ body{
 }
 .circle-btn.disabled{
   background: rgba(0, 0, 0, 0.15);
-  cursor: no-drop;
+  cursor: auto;
   &:hover::before{
     opacity: 0;
   }
 }
+.hint{
+  display: none;
+  position: absolute;
+  bottom: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #FFFFFF;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.15);
+  border: 4px solid #fff;
+  padding: 0 0.5rem;
+  border-radius: 5px;
+}
+
+.hint:after, .hint:before {
+	bottom: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.hint:after {
+	border-color: rgba(255, 255, 255, 0);
+	border-bottom-color: #fff;
+	border-width: 5px;
+	margin-left: -5px;
+}
+.hint:before {
+	border-color: rgba(255, 255, 255, 0);
+	border-bottom-color: #fff;
+	border-width: 11px;
+	margin-left: -11px;
+}
 ul{
   margin: 0;
   padding: 0;
+}
+li{
+  list-style: none;
 }
 .tami{
  position: relative; 
@@ -232,7 +276,7 @@ ul{
  min-height: 100px;
  color: #000;
  font-weight: 500;
- overflow: hidden;
+ //overflow: hidden;
  top: 5%;font-size: 1.5vw; 
  cursor: pointer;
  &:nth-child(5n+1){
@@ -255,13 +299,12 @@ ul{
      display: block;
      width: 70%;
      margin: 0 auto;
-  //    position: absolute;
+       //    position: absolute;
   //    left: 0;
   //    top: -10%;
  }
 }
 .tami-name{
-
   position: absolute;
   left: 5%;
   top: 5%;
@@ -269,7 +312,6 @@ ul{
   overflow: hidden;  
 }
 .tami-time{
-
   position: absolute;
   right: 5%;
   top: 5%; 
@@ -284,7 +326,7 @@ ul{
   justify-content: space-around;
   justify-content: none;
   li{
-    width: 30px;
+    width: 20%;
     list-style: none;
     position: relative;
     color: #000;
@@ -323,9 +365,16 @@ background-image: url(./bg/health.svg);
 }
 @media (max-width: 576px) {
   .welcomeScreen{
+    width: 90%;
     input{
+      width: 80%;
+    }
+    p{
       width: 90%;
     }
+  }
+  .circle-btn{
+    margin-bottom: 8vw;
   }
   .action-menu{
     width: 90%;
@@ -337,3 +386,23 @@ background-image: url(./bg/health.svg);
   }
   
  }
+.escape{
+  position: relative;
+  animation-name: example;
+  animation-duration: 7s;
+  animation-delay: 2s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+  z-index: 100;
+} 
+
+@keyframes example {
+  0% {
+    transform: translateX(0);
+    width: 70%;
+  }
+  100% {
+    transform: translateX(1000px); 
+    width: 0; 
+  }
+}
